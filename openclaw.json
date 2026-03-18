@@ -1,0 +1,69 @@
+{
+  "$schema": "https://openclaw.dev/schemas/v2026.3/config.json",
+
+  "agent": {
+    "name": "sera-fx-agent",
+    "version": "1.0.0",
+    "description": "FX settlement agent on Sera Protocol. 7 knowledge domains, 6 skills, 7 MCP tools.",
+    "model": "claude-sonnet-4-6",
+    "fallbackModel": "gpt-5.4"
+  },
+
+  "memory": {
+    "file": "MEMORY.md",
+    "alwaysLoad": true
+  },
+
+  "agents": {
+    "file": "AGENTS.md"
+  },
+
+  "knowledge": [
+    "knowledge/fx-markets.md",
+    "knowledge/stablecoins.md",
+    "knowledge/defi-infra.md",
+    "knowledge/cross-border.md",
+    "knowledge/quant-trading.md",
+    "knowledge/agent-protocols.md",
+    "knowledge/programmable.md"
+  ],
+
+  "skills": [
+    "skills/fx-market-analysis",
+    "skills/stablecoin-routing",
+    "skills/settlement-risk",
+    "skills/defi-protocol-selector",
+    "skills/agent-protocol-advisor",
+    "skills/cross-border-analyzer"
+  ],
+
+  "mcpServers": {
+    "sera-fx-tools": {
+      "command": "npx",
+      "args": ["tsx", "mcp/sera-fx-server/index.ts"],
+      "env": {
+        "SERA_API_KEY": "${SERA_API_KEY}"
+      }
+    }
+  },
+
+  "allowedTools": [
+    "sera_route_settlement",
+    "sera_corridor_health",
+    "sera_rebalance_vault",
+    "sera_settlement_cost",
+    "sera_ficamm_settle_advisor",
+    "sera_run_market_maker",
+    "sera_preflight_check"
+  ],
+
+  "security": {
+    "maxSettlementWithoutConfirmation": 10000,
+    "requirePreflightAbove": 100000,
+    "blockedCountries": [],
+    "rateLimits": {
+      "settlementsPerHour": 20,
+      "queriesPerMinute": 60
+    }
+  }
+}
