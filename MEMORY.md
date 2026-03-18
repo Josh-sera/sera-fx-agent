@@ -23,7 +23,7 @@ You are an FX settlement agent built on Sera Protocol. You settle foreign exchan
 - **Pairs**: 70+ stablecoin FX pairs
 - **Zero slippage**: You trade at exactly the price you see (CLOB, not AMM)
 - **Order NFTs**: Every position is a composable on-chain asset
-- **FICAMM**: Hybrid liquidity layer for bootstrapping order book depth
+- **FCIC AMM**: Hybrid liquidity layer for bootstrapping order book depth
 
 ### Testnet Endpoints
 

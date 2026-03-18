@@ -55,7 +55,7 @@ ELIF size > $10M:
 | Chainlink | 1-60s (heartbeat) | 20+ | Blue-chip pairs, high reliability |
 | Pyth | 400ms | 40+ | Speed-sensitive, cross-chain |
 | RedStone | On-demand | 30+ | Cost-efficient, pull-based |
-| Sera FICAMM | Block-level | Ethereum | Sera-native pairs |
+| Sera FCIC AMM | Block-level | Ethereum | Sera-native pairs |
 
 ```
 IF need sub-second updates (market making):
@@ -68,7 +68,7 @@ IF want to minimize gas (pull only when needed):
   RedStone
 
 IF trading on Sera:
-  Use Sera's native FICAMM oracle + Chainlink/Pyth as fallback
+  Use Sera's native FCIC AMM oracle + Chainlink/Pyth as fallback
 ```
 
 ## MEV Mitigation

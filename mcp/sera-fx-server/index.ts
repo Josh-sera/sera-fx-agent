@@ -387,14 +387,14 @@ server.tool(
 // ── Tool: sera_ficamm_settle_advisor ───────────────
 server.tool(
   "sera_ficamm_settle_advisor",
-  "Advise whether to settle or defer FICAMM position credits. "
+  "Advise whether to settle or defer FCIC AMM position credits. "
   + "Reads state indices, computes net pending value, projects P&L.",
   {
-    position_id: z.string().describe("FICAMM position ID"),
+    position_id: z.string().describe("FCIC AMM position ID"),
     token:       z.string().describe("Token to evaluate (e.g. USDC)"),
   },
   async ({ position_id, token }) => {
-    // Query FICAMM position state
+    // Query FCIC AMM position state
     const query = `{
       ficammPosition(id: "${position_id}") {
         id

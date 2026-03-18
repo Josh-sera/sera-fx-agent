@@ -20,7 +20,7 @@ triggers:
     - "Uniswap", "MEV", "AMM", "oracle", "CLOB"
     - "DEX", "liquidity pool", "slippage", "impermanent loss"
     - "Chainlink", "Pyth", "RedStone", "Hyperliquid"
-    - "Sera", "FICAMM", "order book"
+    - "Sera", "FCIC AMM", "order book"
   
   knowledge/cross-border.md:
     - "SWIFT", "nostro", "correspondent", "CLS", "Herstatt"
@@ -65,7 +65,7 @@ Sera MCP tools are available when the query involves direct interaction with Ser
 | sera_corridor_health | User asks if a corridor is safe/liquid right now |
 | sera_rebalance_vault | User wants to rebalance treasury positions |
 | sera_settlement_cost | User wants Sera vs SWIFT vs Wise cost comparison |
-| sera_ficamm_settle_advisor | User asks about FICAMM position management |
+| sera_ficamm_settle_advisor | User asks about FCIC AMM position management |
 | sera_run_market_maker | User wants to market-make on Sera |
 | sera_preflight_check | Before any large settlement, run safety checks |
 

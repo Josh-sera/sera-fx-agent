@@ -81,7 +81,7 @@ Loading everything into every context window: $50+/day. Keyword-triggered loadin
 | `sera_corridor_health` | GREEN/AMBER/RED corridor viability with tranche recommendation |
 | `sera_rebalance_vault` | Compute and execute multi-leg vault rebalance |
 | `sera_settlement_cost` | Sera vs SWIFT vs Wise cost comparison table |
-| `sera_ficamm_settle_advisor` | Settle or defer FICAMM position credits |
+| `sera_ficamm_settle_advisor` | Settle or defer FCIC AMM position credits |
 | `sera_run_market_maker` | Two-sided market-making strategy with target APY |
 | `sera_preflight_check` | GO/NO-GO/SPLIT safety check before large settlements |
 
@@ -98,7 +98,7 @@ Sera is a fully on-chain central limit order book (CLOB) for FX settlement betwe
 - **Zero slippage**: Trade at exactly the price you see
 - **70+ FX pairs**: Stablecoin-denominated currency pairs
 - **Order NFTs**: Every position is a composable on-chain asset
-- **FICAMM**: Hybrid liquidity layer for bootstrapping order book depth
+- **FCIC AMM**: Hybrid liquidity layer for bootstrapping order book depth
 
 **Testnet is live now.** Every user gets 10M free testnet tokens.
 
