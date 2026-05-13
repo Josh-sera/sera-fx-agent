@@ -1,0 +1,18 @@
+{
+  "_comment": "Add this mcpServers block to your Hermes MCP config. Hermes v0.13.0+ supports MCP natively; see https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp for the exact config file path. Update both paths to match your clones. sera-mcp must be built first: cd ~/sera-mcp && npm install && npm run build.",
+  "mcpServers": {
+    "sera": {
+      "command": "node",
+      "args": ["/absolute/path/to/sera-mcp/dist/index.js"],
+      "env": {
+        "SERA_NETWORK": "mainnet",
+        "POLICY_PRESET": "standard",
+        "LOG_LEVEL": "info"
+      }
+    },
+    "sera-fx-tools": {
+      "command": "npx",
+      "args": ["tsx", "/absolute/path/to/sera-fx-agent/mcp/sera-fx-tools/index.ts"]
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://openclaw.dev/schemas/v2026.3/config.json",
+
+  "agent": {
+    "name": "sera-fx-agent",
+    "version": "2.0.0",
+    "description": "FX intelligence agent on Sera Protocol mainnet. Reads Sera APIs for trading, prediction-market edge calc, derivative basis decomposition, settlement routing. Read-only — execution always routes through sera-mcp.",
+    "model": "claude-sonnet-4-6",
+    "fallbackModel": "gpt-5.4"
+  },
+
+  "memory": {
+    "file": "MEMORY.md",
+    "alwaysLoad": true
+  },
+
+  "agents": {
+    "file": "AGENTS.md"
+  },
+
+  "knowledge": [
+    "knowledge/fx-markets.md",
+    "knowledge/stablecoins.md",
+    "knowledge/defi-infra.md",
+    "knowledge/cross-border.md",
+    "knowledge/quant-trading.md",
+    "knowledge/agent-protocols.md",
+    "knowledge/programmable.md",
+    "knowledge/fx-derivatives.md",
+    "knowledge/fx-prediction-markets.md",
+    "knowledge/trading-strategy.md",
+    "knowledge/freshness.md"
+  ],
+
+  "skills": [
+    "skills/fx-market-analysis",
+    "skills/stablecoin-routing",
+    "skills/settlement-risk",
+    "skills/defi-protocol-selector",
+    "skills/agent-protocol-advisor",
+    "skills/cross-border-analyzer",
+    "skills/derivative-analysis",
+    "skills/prediction-market-edge",
+    "skills/trading-strategy-builder"
+  ],
+
+  "_comment_mcp_layout": "Two MCPs: sera-mcp owns EXECUTION (mainnet REST, 32 tools, all signing/policy/safety). sera-fx-tools owns THINKING (read-only analytical compositors). Agent never executes via sera-fx-tools — that boundary is intentional.",
+
+  "mcpServers": {
+    "sera-mcp": {
+      "command": "node",
+      "args": ["${SERA_MCP_DIST:-/Users/josh/Desktop/sera-mcp/dist/index.js}"],
+      "env": {
+        "SERA_NETWORK": "mainnet",
+        "POLICY_PRESET": "standard",
+        "LOG_LEVEL": "warn"
+      }
+    },
+    "sera-fx-tools": {
+      "command": "npx",
+      "args": ["tsx", "mcp/sera-fx-tools/index.ts"],
+      "env": {
+        "SERA_NETWORK": "mainnet"
+      }
+    }
+  },
+
+  "allowedTools": [
+    "sera.list_currencies",
+    "sera.get_markets",
+    "sera.get_fx_rate",
+    "sera.compare_to_external_fx",
+    "sera.multi_source_mid",
+    "sera.spread_radar",
+    "sera.scan_markets",
+    "sera.find_deals",
+    "sera.probe_depth",
+    "sera.round_trip_cost",
+    "sera.infer_book",
+    "sera.market_health",
+    "sera.fx_quote_diff",
+    "sera.compare_corridors",
+    "sera.get_quote",
+    "sera.prepare_swap",
+    "sera.execute_swap",
+    "sera.convert_and_send",
+    "sera.quote_recipient_amount",
+    "sera.find_cheapest_settlement_path",
+    "sera.limit_watcher",
+    "sera.settlement_status",
+    "sera.get_balances",
+    "sera.treasury_value",
+    "sera.exposure_report",
+    "sera.rebalance_plan",
+    "sera.pay_invoice",
+    "sera.fx_history",
+    "sera.fx_volatility",
+    "sera.corridor_pnl",
+    "sera.maker_quote_ladder",
+    "sera.doctor",
+    "fx_corridor_pulse",
+    "fx_arb_radar",
+    "fx_vol_window",
+    "fx_basis_thinker",
+    "fx_prediction_market_edge",
+    "fx_carry_thinker",
+    "fx_corridor_compare"
+  ],
+
+  "security": {
+    "maxSettlementWithoutConfirmation": 10000,
+    "requirePreflightAbove": 100000,
+    "blockedCountries": [],
+    "rateLimits": {
+      "settlementsPerHour": 20,
+      "queriesPerMinute": 60
+    }
+  }
+}

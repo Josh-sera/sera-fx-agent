@@ -1,0 +1,18 @@
+{
+  "_comment": "Paste the mcpServers block into ~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or %APPDATA%\\Claude\\claude_desktop_config.json (Windows). Update both paths to match your clones. Restart Claude Desktop fully after editing. sera-mcp must be built first: cd ~/sera-mcp && npm install && npm run build.",
+  "mcpServers": {
+    "sera": {
+      "command": "node",
+      "args": ["/absolute/path/to/sera-mcp/dist/index.js"],
+      "env": {
+        "SERA_NETWORK": "mainnet",
+        "POLICY_PRESET": "standard",
+        "LOG_LEVEL": "info"
+      }
+    },
+    "sera-fx-tools": {
+      "command": "npx",
+      "args": ["tsx", "/absolute/path/to/sera-fx-agent/mcp/sera-fx-tools/index.ts"]
+    }
+  }
+}

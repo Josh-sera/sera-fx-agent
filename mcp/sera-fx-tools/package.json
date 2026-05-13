@@ -1,0 +1,22 @@
+{
+  "name": "sera-fx-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sera FX Agent thinking MCP — read-only analytical compositors over Sera APIs.",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "build": "tsc",
+    "inspect": "npx @modelcontextprotocol/inspector npx tsx index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.2.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}

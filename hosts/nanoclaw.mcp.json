@@ -1,0 +1,18 @@
+{
+  "_comment": "Drop this into your NanoClaw workspace root as .mcp.json. NanoClaw will spawn both MCPs inside the agent container. The sera-mcp dist must be reachable inside the container (mount it or rebuild there). Update both paths to your clones.",
+  "mcpServers": {
+    "sera": {
+      "command": "node",
+      "args": ["/absolute/path/to/sera-mcp/dist/index.js"],
+      "env": {
+        "SERA_NETWORK": "mainnet",
+        "POLICY_PRESET": "standard",
+        "LOG_LEVEL": "info"
+      }
+    },
+    "sera-fx-tools": {
+      "command": "npx",
+      "args": ["tsx", "/absolute/path/to/sera-fx-agent/mcp/sera-fx-tools/index.ts"]
+    }
+  }
+}
